@@ -1,33 +1,10 @@
 import 'package:data_table_2/data_table_2.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
-import 'package:flutter_web_dashboard/Models/product_model.dart';
-import 'package:flutter_web_dashboard/Service/product_service.dart';
 import 'package:flutter_web_dashboard/constants/style.dart';
-import 'package:flutter_web_dashboard/widgets/custom_text.dart';
 
 /// Example without datasource
 class ProductTable extends StatelessWidget {
-  ValueNotifier<bool> get loading=>_loading;
-  ValueNotifier<bool> _loading=ValueNotifier(false);
-
-  List<ProductModel> get productModel => _productModel;
-  List<ProductModel> _productModel = [];
-  //Product Item From Firebase
-
-  getProduct() async{
-    _loading.value=true;
-    ProductService().getProduct().then((value){
-      for(int i=0;i<value.length;i++){
-        _productModel.add(ProductModel.fromJson(value[i].data() as Map<dynamic, dynamic>));
-        _loading.value=false;
-      }
-      print(_productModel.length);
-      // update();
-
-    } );
-
-  }
   @override
   Widget build(BuildContext context) {
     return Container(
