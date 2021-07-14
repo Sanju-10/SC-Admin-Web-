@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_web_dashboard/constants/style.dart';
 import 'package:flutter_web_dashboard/routing/routes.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:get/get.dart';
 
 class MenuController extends GetxController {
@@ -24,15 +25,15 @@ class MenuController extends GetxController {
   Widget returnIconFor(String itemName) {
     switch (itemName) {
       case overviewPageDisplayName:
-        return _customIcon(Icons.trending_up, itemName);
-      case driversPageDisplayName:
-        return _customIcon(Icons.drive_eta, itemName);
-      case clientsPageDisplayName:
-        return _customIcon(Icons.people_alt_outlined, itemName);
+        return _customIcon(FontAwesomeIcons.poll, itemName);
+      case ordersPageDisplayName:
+        return _customIcon(FontAwesomeIcons.box, itemName);
+      case productsPageDisplayName:
+        return _customIcon(FontAwesomeIcons.shoppingBag, itemName);
       case authenticationPageDisplayName:
-        return _customIcon(Icons.exit_to_app, itemName);
+        return _customIcon(FontAwesomeIcons.signOutAlt, itemName);
       default:
-        return _customIcon(Icons.exit_to_app, itemName);
+        return _customIcon(FontAwesomeIcons.signOutAlt, itemName);
     }
   }
 

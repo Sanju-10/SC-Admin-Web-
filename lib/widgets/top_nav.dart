@@ -6,11 +6,14 @@ import 'custom_text.dart';
 
 AppBar topNavigationBar(BuildContext context,  GlobalKey<ScaffoldState> key) =>
 AppBar(
+        leadingWidth:MediaQuery.of(context).size.width*.2 ,
         leading: !ResponsiveWidget.isSmallScreen(context) ? Row(
           children: [
             Padding(
-              padding: const EdgeInsets.only(left: 16),
-              child: Image.asset("assets/icons/logo.png", width: 28,),
+              padding: const EdgeInsets.only(left: 16,top: 10),
+              child: Container(
+                  width: MediaQuery.of(context).size.width*.15,
+                  child: Image.asset("assets/icons/logo.png",)),
             ),
           ],
         ) : IconButton(icon: Icon(Icons.menu), onPressed: (){
@@ -19,9 +22,6 @@ AppBar(
         title: Container(
           child: Row(
             children: [
-              Visibility(
-                visible: !ResponsiveWidget.isSmallScreen(context),
-                child: CustomText(text: "Dash", color: lightGrey, size: 20, weight: FontWeight.bold,)),
               Expanded(child: Container()),
               IconButton(icon: Icon(Icons.settings, color: dark,), onPressed: (){}),
 
@@ -45,14 +45,21 @@ AppBar(
                 ],
               ),
 
-            Container(
-                      width: 1,
-                      height: 22,
-                      color: lightGrey,
-                    ),
-              SizedBox(width: 24,),
-              CustomText(text: "Santos Enoque", color: lightGrey,),
-              SizedBox(width: 16,),
+
+              !ResponsiveWidget.isSmallScreen(context) ?Row(
+                children: [
+                  Container(
+                    width: 1,
+                    height: 22,
+                    color: lightGrey,
+                  ),
+                  SizedBox(width: 24,),
+                  CustomText(text: "Sanjaya Chathuranga", color: lightGrey,),
+                  SizedBox(width: 16,),
+                ],
+
+              ):Container(),
+
               Container(
                   decoration: BoxDecoration(
                     color: active.withOpacity(.5),

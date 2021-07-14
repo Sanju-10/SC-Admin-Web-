@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_web_dashboard/constants/controllers.dart';
 import 'package:flutter_web_dashboard/helpers/reponsiveness.dart';
-import 'package:flutter_web_dashboard/pages/clients/widgets/clients_table.dart';
+import 'package:flutter_web_dashboard/pages/Orders/widgets/orders_table.dart';
 import 'package:flutter_web_dashboard/widgets/custom_text.dart';
 import 'package:get/get.dart';
 
-class ClientsPage extends StatelessWidget {
-  const ClientsPage({ Key key }) : super(key: key);
+class OrdersPage extends StatelessWidget {
+  const OrdersPage({ Key key }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -24,7 +24,7 @@ class ClientsPage extends StatelessWidget {
 
                   Expanded(child: ListView(
                     children: [
-                      Clientstable(),
+                      DriversTable()
                     ],
                   )),
 

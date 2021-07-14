@@ -1,3 +1,4 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_web_dashboard/constants/style.dart';
 import 'package:flutter_web_dashboard/routing/routes.dart';
@@ -17,14 +18,13 @@ class AuthenticationPage extends StatelessWidget {
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              Row(
-                children: [
-                  Padding(
-                    padding: const EdgeInsets.only(right: 12),
-                    child: Image.asset("assets/icons/logo.png"),
-                  ),
-                  Expanded(child: Container()),
-                ],
+              Padding(
+                padding: const EdgeInsets.only(right: 12),
+                child:
+                    Container(
+                        height: MediaQuery.of(context).size.height*.1,
+                        width: MediaQuery.of(context).size.width,
+                        child: Image.asset("assets/icons/logo.png")),
               ),
               SizedBox(
                 height: 30,
@@ -50,25 +50,32 @@ class AuthenticationPage extends StatelessWidget {
               SizedBox(
                 height: 15,
               ),
-              TextField(
-                decoration: InputDecoration(
-                    labelText: "Email",
-                    hintText: "abc@domain.com",
-                    border: OutlineInputBorder(
-                        borderRadius: BorderRadius.circular(20))),
+              Form(
+                child: Column(
+                  children: [
+                    TextFormField(
+                      decoration: InputDecoration(
+                          labelText: "Email",
+                          hintText: "Enter Your Email",
+                          border: OutlineInputBorder(
+                              borderRadius: BorderRadius.circular(20))),
+                    ),
+                    SizedBox(
+                      height: 15,
+                    ),
+                    TextFormField(
+                      obscureText: true,
+                      decoration: InputDecoration(
+                          labelText: "Password",
+                          hintText: "Enter Your Password",
+                          border: OutlineInputBorder(
+                              borderRadius: BorderRadius.circular(20))),
+                    ),
+                  ],
+                ),
               ),
+
               SizedBox(
-                height: 15,
-              ),
-              TextField(
-                obscureText: true,
-                decoration: InputDecoration(
-                    labelText: "Password",
-                    hintText: "123",
-                    border: OutlineInputBorder(
-                        borderRadius: BorderRadius.circular(20))),
-              ),
-               SizedBox(
                 height: 15,
               ),
               Row(
@@ -76,27 +83,25 @@ class AuthenticationPage extends StatelessWidget {
                 children: [
                   Row(
                     children: [
-                      Checkbox(value: true, onChanged: (value){}),
-                      CustomText(text: "Remeber Me",),
+                      Checkbox(value: true, onChanged: (value) {}),
+                      CustomText(
+                        text: "Remeber Me",
+                      ),
                     ],
                   ),
-
-                  CustomText(
-                    text: "Forgot password?",
-                    color: active
-                  )
+                  CustomText(text: "Forgot password?", color: active)
                 ],
               ),
-                SizedBox(
+              SizedBox(
                 height: 15,
               ),
               InkWell(
-                onTap: (){
+                onTap: () {
                   Get.offAllNamed(rootRoute);
                 },
                 child: Container(
-                  decoration: BoxDecoration(color: active, 
-                  borderRadius: BorderRadius.circular(20)),
+                  decoration: BoxDecoration(
+                      color: active, borderRadius: BorderRadius.circular(20)),
                   alignment: Alignment.center,
                   width: double.maxFinite,
                   padding: EdgeInsets.symmetric(vertical: 16),
@@ -106,18 +111,16 @@ class AuthenticationPage extends StatelessWidget {
                   ),
                 ),
               ),
-
-               SizedBox(
+              SizedBox(
                 height: 15,
               ),
-
-              RichText(text: TextSpan(
-                children: [
-                  TextSpan(text: "Do not have admin credentials? "),
-                  TextSpan(text: "Request Credentials! ", style: TextStyle(color: active))
-                ]
-              ))
-
+              RichText(
+                  text: TextSpan(children: [
+                TextSpan(text: "Do not have admin credentials? "),
+                TextSpan(
+                    text: "Request Credentials! ",
+                    style: TextStyle(color: active))
+              ]))
             ],
           ),
         ),

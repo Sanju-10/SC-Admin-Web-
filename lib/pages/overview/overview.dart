@@ -17,6 +17,7 @@ class OverviewPage extends StatelessWidget {
     return Container(
       child: Column(
         children: [
+          SizedBox(height: 10,),
           Obx(
             () => Row(
               children: [

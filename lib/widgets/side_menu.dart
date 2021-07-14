@@ -25,23 +25,12 @@ class SideMenu extends StatelessWidget {
                     SizedBox(
                       height: 40,
                     ),
-                    Row(
-                      children: [
-                        SizedBox(width: _width / 48),
-                        Padding(
-                          padding: const EdgeInsets.only(right: 12),
-                          child: Image.asset("assets/icons/logo.png"),
-                        ),
-                        Flexible(
-                          child: CustomText(
-                            text: "Dash",
-                            size: 20,
-                            weight: FontWeight.bold,
-                            color: active,
-                          ),
-                        ),
-                        SizedBox(width: _width / 48),
-                      ],
+                    Padding(
+                      padding: const EdgeInsets.only(right: 12),
+                      child: Container(
+                          height: MediaQuery.of(context).size.height*.1,
+                          width: _width,
+                          child: Image.asset("assets/icons/logo.png")),
                     ),
                     SizedBox(
                       height: 30,

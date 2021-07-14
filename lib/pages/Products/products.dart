@@ -1,18 +1,19 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_web_dashboard/constants/controllers.dart';
 import 'package:flutter_web_dashboard/helpers/reponsiveness.dart';
-import 'package:flutter_web_dashboard/pages/drivers/widgets/drivers_table.dart';
+import 'package:flutter_web_dashboard/pages/Products/widgets/products_table.dart';
 import 'package:flutter_web_dashboard/widgets/custom_text.dart';
 import 'package:get/get.dart';
 
-class DriversPage extends StatelessWidget {
-  const DriversPage({ Key key }) : super(key: key);
+class ProductsPage extends StatelessWidget {
+  const ProductsPage({ Key key }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
          return Container(
                 child: Column(
                 children: [
+                  SizedBox(height: 10),
                  Obx(() => Row(
                     children: [
                       Container(
@@ -24,7 +25,7 @@ class DriversPage extends StatelessWidget {
 
                   Expanded(child: ListView(
                     children: [
-                      DriversTable()
+                      ProductTable(),
                     ],
                   )),
 
