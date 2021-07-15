@@ -7,10 +7,13 @@ import 'package:flutter_web_dashboard/pages/404/error.dart';
 import 'package:flutter_web_dashboard/pages/authentication/authentication.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:firebase_core/firebase_core.dart';
 
 import 'routing/routes.dart';
 
-void main() {
+Future main() async{
+  WidgetsFlutterBinding.ensureInitialized();
+  await Firebase.initializeApp();
   Get.put(MenuController());
   Get.put(NavigationController());
   runApp(MyApp());
