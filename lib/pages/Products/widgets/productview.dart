@@ -23,6 +23,7 @@ class ProductView extends StatelessWidget {
                     children: [
                       GestureDetector(
                         onTap: (){
+                         addProductDialog(context);
 
                         },
                         child: Material(
@@ -178,4 +179,23 @@ class ProductView extends StatelessWidget {
               },
             ));
   }
+
+  void addProductDialog(BuildContext context) =>showDialog(
+      context: context,
+      barrierDismissible: false,
+      builder: (BuildContext context){
+        return Dialog(
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(20.0)
+          ),
+          child: Column(
+            children: [
+              SizedBox(height: 100.0,),
+              Text("Test"),
+              SizedBox(height: 50.0,),
+              Text("Test 2")
+            ],
+          ),
+        );
+      });
 }
